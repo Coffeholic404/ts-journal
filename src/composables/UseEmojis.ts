@@ -23,3 +23,4 @@ export default function UseEmojis() {
 
   return { emojis, findEmoji };
 }
+

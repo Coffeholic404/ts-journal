@@ -5,6 +5,6 @@ import FileNotesIcon from "@/assets/icons/fileNotes.svg"
 <template>
     <h1 class=" text-6xl flex items-center">
         <FileNotesIcon width="80" class=" mr-5" />
-        <strong> My Journal</strong>
+        <strong > My Journal</strong>
     </h1>
 </template>

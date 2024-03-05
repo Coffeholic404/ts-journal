@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FileNotesIcon from "@/assets/icons/file-notes.svg"
+import FileNotesIcon from "@/assets/icons/fileNotes.svg"
 </script>
 
 <template>

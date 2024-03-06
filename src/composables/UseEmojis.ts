@@ -1,5 +1,6 @@
 import type { Component } from "vue";
 import { reactive } from "vue";
+import type Emoji from "@/types/Emoji";
 
 const files: { [key: string]: unknown } = import.meta.glob(
   "../assets/icons/emojis/*.svg",
@@ -18,7 +19,7 @@ export default function UseEmojis() {
   /**
    * Get a single emoji component by name
    */
-  const findEmoji = (name: string) =>
+  const findEmoji = (name: Emoji | null) =>
     emojis.find((emoji) => emoji.name === name)?.component;
 
   return { emojis, findEmoji };

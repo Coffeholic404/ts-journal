@@ -2,17 +2,18 @@
 import EmojiField from "@/components/EmojjiField.vue";
 import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg";
 import type Emoji from "@/types/Emoji";
-import { ref} from "vue";
+import { ref, computed} from "vue";
 
 const text = ref("")
 const emoji = ref<Emoji | null>(null)
+const textCount = computed(()=> text.value.length)
 </script>
 <template>
   <form class="entry-form" @submit.prevent>
     <textarea v-model="text" placeholder="New Journal Entry"></textarea>
     <EmojiField v-model="emoji"/>
     <div class="entry-form-footer">
-      <span>0 / 280</span>
+      <span>{{ textCount }} / 280</span>
       <button>Remember <ArrowCircleRight width="20" /></button>
     </div>
   </form>

@@ -7,13 +7,22 @@ import { ref, computed} from "vue";
 const text = ref("")
 const emoji = ref<Emoji | null>(null)
 const textCount = computed(()=> text.value.length)
+const maxChar = 280 as number;
+const handleTextInput = (e: Event) =>{
+  e.preventDefault()
+  const textarea = e.target as HTMLTextAreaElement;
+  (textarea.value.length <= maxChar) ? text.value = textarea.value : text.value = textarea.value = textarea.value.substring(0, 280);
+}
 </script>
 <template>
   <form class="entry-form" @submit.prevent>
-    <textarea v-model="text" placeholder="New Journal Entry"></textarea>
+    <textarea
+    :value="text" 
+    @keyup="handleTextInput" 
+    placeholder="New Journal Entry"></textarea>
     <EmojiField v-model="emoji"/>
     <div class="entry-form-footer">
-      <span>{{ textCount }} / 280</span>
+      <span>{{ textCount }} / {{ maxChar }}</span>
       <button>Remember <ArrowCircleRight width="20" /></button>
     </div>
   </form>
